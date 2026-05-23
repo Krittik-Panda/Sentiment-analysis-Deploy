@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f14;
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #1a1a24;
+      border: 1px solid #2e2e42;
+      border-radius: 14px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+    }
+
+    .label {
+  display: inline-block;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  padding: 0.5rem 1.8rem;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  color: #e0e0f0;                        
+  background: rgba(255,255,255,0.06);   
+    }
+    .positive { color: #29e10dcf; background: rgba(74,222,128,0.12); }
+    .negative { color: #eb1212;   background: rgba(248,113,113,0.12); }
+    .neutral  { color: #00e3d4;   background: rgba(96,165,250,0.12);  }
+
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: #7c6af7;
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    a:hover { background: #6a58e0; }
+
+    .btn-history-link {
+      background: transparent;
+      border: 1px solid #2e2e42;
+      color: #8888aa;
+    }
+    .btn-history-link:hover {
+      background: transparent;
+      border-color: #7c6af7;
+      color: #c0b8ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <p class="label {{ label | lower }}">{{ label }}</p>
+    <div class="actions">
+      <a href="/">&#8592; Try another</a>
+      <a href="{{ url_for('history_page') }}" class="btn-history-link">&#128337; History</a>
+    </div>
+  </div>
+</body>
+</html>
